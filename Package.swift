@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "ImageOCR",
+    platforms: [
+        .iOS("15.0")
+    ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -23,6 +26,7 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "ImageOCRTests",
-            dependencies: ["ImageOCR"]),
+            dependencies: ["ImageOCR"]
+        )
     ]
 )

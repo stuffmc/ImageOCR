@@ -1,11 +1,17 @@
 import XCTest
+
 @testable import ImageOCR
 
 final class ImageOCRTests: XCTestCase {
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(ImageOCR().text, "Hello, World!")
+        guard let asset = NSDataAsset(name: "MagSafe", bundle: .module) else {
+            XCTFail()
+            return
+        }
+        guard let image = CIImage(data: asset.data) else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(ImageOCR(inputImage: image).string, "85W MagSafe 2/nPower Adapter")
     }
 }
