@@ -27,9 +27,11 @@ public struct ImageOCR {
         let ocrRequest = VNRecognizeTextRequest { request, _ in
             textBlocks = request.results as? [VNRecognizedTextObservation] ?? []
         }
-        if textBlocks.isEmpty {
-            return nil
-        }
+        // At this point, the block in the VNRecognizeTextRequest
+        // has not been executed. textBlock will always be empty
+//        if textBlocks.isEmpty {
+//            return nil
+//        }
         do {
             try documentRequestHandler.perform([ocrRequest])
         } catch {
