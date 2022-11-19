@@ -14,6 +14,6 @@ final class ImageOCRTests: XCTestCase {
         }
         // Your code only returns the first string of the first
         // Top candidate
-        XCTAssertEqual(ImageOCR(inputImage: image).string, "Power Adapter")
+        XCTAssertEqual(ImageOCR(inputImage: image).string, "85W MagSafe 2")
     }
 }
